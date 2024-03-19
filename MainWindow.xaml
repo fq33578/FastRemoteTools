@@ -1,0 +1,221 @@
+﻿<Window x:Class="IPC_default.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IPC_default"
+        mc:Ignorable="d"
+        
+        Title="IPC_NB_Quick_Tool_2.4.3_beta_by:PXLin131Studio" MinHeight="400" MinWidth="850" Height="400" Width="850"
+        ResizeMode="CanResize"
+        >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="302*"/>
+            <RowDefinition Height="83*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="51*"/>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="208*"/>
+            <ColumnDefinition Width="470*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel  Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="7"  Grid.Row="0" Grid.RowSpan="2">
+            <TabControl   VerticalAlignment="Top"  Grid.Row="0" Grid.Column="0"  Grid.RowSpan="2" Grid.ColumnSpan="1" MaxHeight="384" MaxWidth="400" Height="360" Width="359">
+                <TabItem Name="Tab2" Header="筆電端">
+                    <StackPanel Width="228" Height="286" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <StackPanel   Orientation="Horizontal" HorizontalAlignment="Left" Height="121" Margin="0,0,0,5">
+                            <StackPanel x:Name = "內框左右1上下3" Orientation="Vertical" VerticalAlignment="Top" Margin="0,0,0,0" >
+                                <StackPanel x:Name="內框左右2" Grid.Column="1" Grid.ColumnSpan="1" Orientation="Vertical" Grid.RowSpan="1" Grid.Row="2" Margin="5,0,0,0" >
+                                    <TextBlock  x:Name="textBlock4_Copy"  FontSize="15"
+                                        TextWrapping="Wrap" Background="Aquamarine" TextAlignment="Center" Width="100" Height="20" Margin="0,0,0,0"  ><Run Language="zh-tw" Text="網路介面卡" /></TextBlock>
+                                    <Button x:Name="IPC_Copy" Content="Open" Click="Netcard_Config" Width="100"
+                                       Height="37"   FontSize="15"   />
+                                    <StackPanel x:Name="內框左右3" Grid.Column="1" Grid.ColumnSpan="1" Orientation="Vertical" Grid.RowSpan="1" Grid.Row="2" Margin="0,0,0,0" >
+                                        <TextBlock  x:Name="CMD"  FontSize="15" 
+                                        TextWrapping="Wrap" Background="Aquamarine" TextAlignment="Center" Width="100" Height="20" Margin="0,5,0,0"  ><Run Language="zh-tw" Text="CMD(Admin)" /></TextBlock>
+                                        <Button x:Name="IPC_Copy1" Content="Open" Click="OPEN_CMD" Margin="0,0,0,0"
+                                        Height="37"   FontSize="15"   />
+
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel x:Name="內框左右1上下4" Grid.Column="1" Grid.ColumnSpan="1" Orientation="Vertical" Grid.RowSpan="1" Grid.Row="2" Margin="5,5,0,0" />
+                                <StackPanel x:Name="內框左右1上下2_Copy1" Orientation="Vertical" />
+                            </StackPanel>
+                            <StackPanel  Orientation="Horizontal" />
+                            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15,0,0,0" Height="120">
+                                <TextBlock  x:Name="textBlock10" HorizontalAlignment="Left" FontSize="15"
+                                    TextWrapping="Wrap" Background="Aquamarine" TextAlignment="Center" Width="100" Height="20" Margin="0,0,0,0" ><Run Language="zh-tw" Text="遠端桌面"/></TextBlock>
+                                <Button  x:Name="RMS" Content="Start" Click="Remote_Start" HorizontalAlignment="Left"
+                                    Width="100" Height="37"   FontSize="15"  />
+                            </StackPanel>
+
+                        </StackPanel>
+                        <StackPanel Height="77" Orientation="Horizontal" VerticalAlignment="Top">
+                            <StackPanel Height="80" Margin="0,0,0,0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock  x:Name="textBlock8" HorizontalAlignment="Left" Margin="5,0,0,0" FontSize="15"
+                                TextWrapping="Wrap" Background="Aquamarine" TextAlignment="Center" Width="120" Height="20" Text="設定網卡IP(筆電)"/>
+                                    <CheckBox x:Name="RealCard"   Content="Real" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="2.5,0,0,0" Checked="Enabled_Real"/>
+                                    <CheckBox x:Name="VMCard"   Content="VM" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5,0,0,0" Checked="Enabled_VM"/>
+                                </StackPanel>
+                                <StackPanel Width="214" Height="20" Orientation="Horizontal" HorizontalAlignment="Left" Margin="5,0,0,0">
+                                    <ComboBox Name="NetCardCombo" Width="110" Height="20" SelectionChanged="NetCardCombo_SelectionChanged" PreviewMouseDown="NetCardFresh"/>
+                                    <TextBox x:Name="SetIP_Input0" HorizontalAlignment="Right"  Margin="0,0,0,0" TextWrapping="Wrap" Width="104" Height="20" TextChanged="SetIP_Input"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5,0,0,0" Height="45" Width="214">
+
+                                    <Button x:Name="IPC" Content="Get IP" Click="Get_Card_IP"
+                                       Height="30"   FontSize="15" Margin="0,5,76,0"  VerticalAlignment="Top"  />
+                                    <Button  x:Name="DHCP_SET"  Content="DHCP" Click="Set_DHCP_Click" 
+                                        Width="50" Height="30"   FontSize="15" VerticalAlignment="Top" Margin="0,5,0,0"/>
+                                    <Button  x:Name="Ping1" Content="Set" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,10,0" Click="Set_IP" 
+                                Width="40" Height="30"   FontSize="15"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Height="77"  Orientation="Vertical" >
+                            <TextBlock  x:Name="textBlock89" HorizontalAlignment="Left" Margin="5,5,0,0" FontSize="15"
+                                        TextWrapping="Wrap" Background="Aquamarine" TextAlignment="Center" Width="214" Height="20"><Run Language="zh-tw" Text="Ping"/></TextBlock>
+                            <TextBox x:Name="Ping_Input1" HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" Width="214" Height="20" TextChanged="Ping_Input"/>
+                            <Button  x:Name="Ping" Content="Start" HorizontalAlignment="Left" Margin="5,0,0,0" Click="Start_Ping" 
+                                         Width="214" Height="22"   FontSize="15"/>
+                        </StackPanel>
+
+
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="SSH" Name="Tab3" Height="19" VerticalAlignment="Top">
+                    <StackPanel Name="外框3" Grid.Column="1" Grid.ColumnSpan="1" Orientation="Horizontal" Grid.RowSpan="1" Grid.Row="1" Margin="5,0,0,0" Height="272" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300">
+                        <StackPanel Height="171" Orientation="Vertical" Margin="0,0,0,0" VerticalAlignment="Top">
+
+                            <TextBlock  x:Name="textBlock4_Copy2"  FontSize="15"
+                                    TextWrapping="Wrap" Background="Aquamarine" TextAlignment="Center" Width="125" Height="20"  Margin="0,5,0,0" HorizontalAlignment="Left"><Run Language="zh-tw" Text="SSH"/></TextBlock>
+                            <StackPanel Height="22" Orientation="Horizontal" Margin="0,0,0,0">
+                                <TextBlock UseLayoutRounding="False" ><Run Language="zh-tw" Text="IP:"/></TextBlock>
+                                <TextBox x:Name="SSH_Input_IP" HorizontalAlignment="Left" Margin="13,0,0,0" TextWrapping="Wrap" Width="98" Height="20" TextChanged="Ping_Input"/>
+                            </StackPanel>
+                            <StackPanel Height="22" Orientation="Horizontal" Margin="0,0,0,0">
+                                <TextBlock UseLayoutRounding="False" ><Run Language="zh-tw" Text="Port:"/></TextBlock>
+                                <TextBox x:Name="SSH_Input_Port" Margin="0,0,0,0" TextWrapping="Wrap" Width="98" Height="22" TextChanged="Ping_Input"/>
+                            </StackPanel>
+                            <StackPanel Height="22" Orientation="Horizontal" Margin="0,2,0,2">
+                                <TextBlock UseLayoutRounding="False" Width="26.5" ><Run Language="zh-tw" Text="ID:"/></TextBlock>
+                                <TextBox x:Name="SSH_Input_ID" Margin="0,0,0,0" TextWrapping="Wrap" Width="98" Height="22" TextChanged="Ping_Input"/>
+                            </StackPanel>
+                            <StackPanel Height="22" Orientation="Horizontal" Margin="0,2,0,2">
+                                <TextBlock UseLayoutRounding="False" Width="26.5" ><Run Language="zh-tw" Text="PW:"/></TextBlock>
+                                <TextBox x:Name="SSH_Input_PassWord" Margin="0,0,0,0" TextWrapping="Wrap" Width="98" Height="22" TextChanged="Ping_Input" Text="暫無法使用"/>
+                            </StackPanel>
+                            <Button x:Name="Start_SSH" Content="Start" Click="OPEN_SSH"
+                                  Width="125"  Height="22"   FontSize="15"   />
+                            <StackPanel Height="22" Orientation="Horizontal" Margin="0,2,0,0" Width="126">
+                                <Button Content="FixError" Width="50" Height="20" VerticalAlignment="Top"  HorizontalAlignment="Left" Margin="0,0,26,0" Click="Fix_SSH_Error"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="IPC端" Name="Tab1" Height="19" VerticalAlignment="Top">
+                    <StackPanel Name="外框" Grid.Column="2" Grid.ColumnSpan="2" Orientation="Horizontal" Grid.RowSpan="1" Grid.Row="3" Margin="5,0,0,0" Height="350" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <StackPanel Width="335" Height="355">
+                            <StackPanel   Orientation="Horizontal" HorizontalAlignment="Left" Height="353" Width="334" >
+                                <StackPanel x:Name = "內框左右1上下1" Orientation="Vertical" VerticalAlignment="Top" Margin="0,0,0,0" >
+                                    <StackPanel x:Name="內框左右1" Grid.Column="1" Grid.ColumnSpan="1" Orientation="Vertical" Grid.RowSpan="1" Grid.Row="2" Margin="5,0,0,0" >
+
+                                        <TextBlock  x:Name="textBlock1"  FontSize="15"
+                              TextWrapping="Wrap" Background="Aquamarine"   TextAlignment="Center"  Width="154" Height="37" HorizontalAlignment="Left"  ><Run Text="防火牆"/></TextBlock>
+                                        <StackPanel Orientation="Horizontal" Height="40" Width="154">
+                                            <Button x:Name="ON1" Content="ON" Click="ON_Firewall"
+                                                MinHeight="37"   FontSize="15" Height="35" Width="77"   />
+
+                                            <Button x:Name="OFF1" Content="OFF" Click="OFF_Firewall"
+                                                MinHeight="37"   FontSize="15" Height="35" Width="77"   />
+                                        </StackPanel>
+
+                                        <TextBlock  x:Name="textBlock2" FontSize="15"
+                              TextWrapping="Wrap" Background="Aquamarine" TextAlignment="Center" Width="154" Height="37" Margin="0,5,0,0" HorizontalAlignment="Left"><Run Text="網路探索"/><LineBreak/><Run Text="(設定時需開啟防火牆)"/></TextBlock>
+                                        <StackPanel Orientation="Horizontal" Height="40" Width="154">
+                                            <Button  x:Name="OP1" Content="ON" Click="OPEN_NET_DISCOVERY" 
+                                Width="77" Height="36"   FontSize="15" />
+                                            <Button  x:Name="OFF6" Content="OFF" Click="OFF_NET_DISCOVERY" 
+                                Width="77" Height="36"   FontSize="15"/>
+
+                                        </StackPanel>
+                                        <TextBlock  x:Name="textBlock3" FontSize="15"
+                              TextWrapping="Wrap" Background="Aquamarine" TextAlignment="Center" Width="154" Height="37" Margin="0,5,0,0" HorizontalAlignment="Left"><Run Text="遠端桌面"/><LineBreak/><Run Language="zh-tw" Text="(設定時需開啟防火牆)"/></TextBlock>
+                                        <StackPanel Orientation="Horizontal" Height="40" Width="154">
+                                            <Button  x:Name="OP2" Content="ON" Click="OPEN_RM"
+                                Width="77" Height="37"   FontSize="15" HorizontalAlignment="Left"/>
+                                            <Button  x:Name="OFF9" Content="OFF" Click="OFF_RM"
+                                Width="77" Height="37"   FontSize="15" HorizontalAlignment="Left"/>
+
+                                        </StackPanel>
+
+                                        <TextBlock  x:Name="textBlock30" FontSize="15"
+                              TextWrapping="Wrap" Background="Aquamarine" TextAlignment="Center" Width="154" Height="37" Margin="0,5,0,0" HorizontalAlignment="Left"><Run Language="zh-tw" Text="終極效能模式"/></TextBlock>
+                                        <StackPanel Orientation="Horizontal" Height="40" Width="154">
+                                            <Button  x:Name="OP20" Content="ON" Click="OPEN_Ultimate_Power_Plant"
+                                Width="154" Height="37"   FontSize="15" HorizontalAlignment="Left"/>
+
+                                        </StackPanel>
+
+                                    </StackPanel>
+                                    <StackPanel x:Name="內框左右1上下2" Grid.Column="1" Grid.ColumnSpan="1" Orientation="Vertical" Margin="5,5,0,0" />
+                                    <StackPanel x:Name="內框左右1上下2_Copy" Orientation="Vertical" />
+                                </StackPanel>
+                                <StackPanel  Orientation="Horizontal" />
+                                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10,0,0,0">
+                                    <TextBlock  x:Name="textBlock5" FontSize="15"
+                              TextWrapping="Wrap" Background="Aquamarine" TextAlignment="Center" Width="154" Height="37" Margin="0,0,0,0" ><Run Language="zh-tw" Text="睡眠/"/><Run Text="休眠"/></TextBlock>
+                                    <StackPanel Orientation="Horizontal" Height="40" Width="154">
+                                        <Button  x:Name="ON2" Content="ON" Click="ON_SLEEP"
+                                Width="77" Height="37"   FontSize="15"  />
+                                        <Button  x:Name="OFF2" Content="OFF" Click="OFF_SLEEP"
+                                Width="77" Height="37"   FontSize="15"  />
+
+                                    </StackPanel>
+                                    <TextBlock  x:Name="textBlock6" FontSize="15"
+                              TextWrapping="Wrap" Background="Aquamarine" TextAlignment="Center" Width="154" Height="37" Margin="0,5,0,0"><Run Language="zh-tw" Text="遠端桌面"/><LineBreak/><Run Language="zh-tw"/><Run Text="限制空白密碼"/><Run Language="zh-tw" Text="登入"/></TextBlock>
+                                    <StackPanel Orientation="Horizontal" Height="40" Width="154">
+                                        <Button  x:Name="ON3" Content="ON" Click="ON_White_PW"
+                               Width="77" Height="37"   FontSize="15"  />
+                                        <Button  x:Name="OFF3" Content="OFF" Click="OFF_White_PW"
+                               Width="77" Height="37"   FontSize="15"  />
+                                    </StackPanel>
+                                    <TextBlock  x:Name="textBlock7" FontSize="15"
+                              TextWrapping="Wrap" Background="Aquamarine" TextAlignment="Center" Width="154" Height="37"  Margin="0,5,0,0" ><Run Text="Windows自動"/><Run Text="更新"/></TextBlock>
+                                    <StackPanel Orientation="Horizontal" Height="40" Width="154">
+                                        <Button  x:Name="ON4" Content="ON" Click="ON_WU"
+                               Width="77" Height="37"   FontSize="15" />
+                                        <Button  x:Name="OFF5" Content="OFF" Click="OFF_WU"
+                               Width="77" Height="37"   FontSize="15" />
+
+
+                                    </StackPanel>
+                                    <TextBlock  x:Name="textBlock300" FontSize="15"
+                              TextWrapping="Wrap" Background="Aquamarine" TextAlignment="Center" Width="154" Height="37" Margin="0,5,0,0" HorizontalAlignment="Left"><Run Language="zh-tw" Text="關閉Windows防毒"/></TextBlock>
+                                    <StackPanel Orientation="Horizontal" Height="40" Width="154">
+                                        <Button  x:Name="OP200" Content="OFF" Click="OFF_Windows_Defender"
+                                Width="154" Height="37"   FontSize="15" HorizontalAlignment="Left"/>
+
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                            <!--<Button Content="一鍵預設IPC(暫不開放)" Width="318" HorizontalAlignment="Left"  FontSize="15" Margin="5,0,0,0" Click="Button_Click"/>-->
+                        </StackPanel>
+
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+            <StackPanel  Orientation="Vertical" VerticalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="3"  Grid.Row="0" Grid.RowSpan="3" Margin="0,0,0,0" Width="468">
+                <TextBox x:Name="TextBox" IsReadOnly="True" TextWrapping="Wrap" Text="" Width="454" TextChanged="TextBox0" Height="340" Margin="0,20,0,0"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
